@@ -23,7 +23,15 @@
   if (questions) {
     brief.questions.forEach((question) => {
       const item = document.createElement("li");
-      item.textContent = question;
+      if (typeof question === "string") {
+        item.textContent = question;
+      } else {
+        const title = document.createElement("strong");
+        const detail = document.createElement("p");
+        title.textContent = question.title;
+        detail.textContent = question.detail;
+        item.append(title, detail);
+      }
       questions.appendChild(item);
     });
   }
