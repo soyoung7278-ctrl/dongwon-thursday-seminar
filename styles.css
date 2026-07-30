@@ -46,16 +46,13 @@ body > .site-header ~ .site-header { display: none; }
 .brand-ci {
   display: flex;
   align-items: center;
-  height: 42px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  background: var(--white);
-  box-shadow: 0 4px 18px rgba(0, 35, 70, .14);
+  height: 38px;
 }
 .brand-ci img {
   display: block;
   width: auto;
-  height: 28px;
+  height: 34px;
+  filter: brightness(0) invert(1);
 }
 .brand-title {
   font-size: 16px;
@@ -119,7 +116,8 @@ nav a:hover, nav a:focus-visible { opacity: 1; }
   font-weight: 800;
   letter-spacing: -.055em;
 }
-.hero-copy { max-width: 570px; margin: 30px 0 38px; color: #dcefff; font-size: 17px; }
+.hero-copy { max-width: none; margin: 30px 0 38px; color: #dcefff; font-size: 17px; }
+.hero-copy span { display: block; white-space: nowrap; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -285,8 +283,37 @@ nav a:hover, nav a:focus-visible { opacity: 1; }
 .speakers {
   grid-column: 2;
   margin-top: 28px;
-  color: #748da0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.speakers > p {
+  margin-bottom: 18px;
+  color: var(--blue);
   font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.speakers ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.speakers li {
+  display: grid;
+  gap: 4px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.speakers strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+.speakers span {
+  color: #748da0;
+  font-size: 11px;
 }
 
 .invitation { padding: 130px max(24px, calc((100vw - 1180px) / 2)); color: var(--white); background: var(--blue); }
@@ -429,6 +456,8 @@ footer a { text-decoration: underline; text-underline-offset: 2px; }
   .hero { min-height: 720px; }
   .hero-inner { padding-top: 155px; }
   .hero h1 { font-size: 44px; }
+  .hero-copy { font-size: 15px; }
+  .hero-copy span { white-space: normal; }
   .hero-index { left: 24px; right: 24px; bottom: 50px; gap: 0; justify-content: space-between; }
   .hero-index strong { font-size: 22px; }
   .section { padding: 90px 0; }
@@ -445,6 +474,7 @@ footer a { text-decoration: underline; text-underline-offset: 2px; }
   .timeline { grid-template-columns: 1fr; }
   .timeline article:nth-child(odd) { border-right: 0; }
   .speakers { grid-column: 1; }
+  .speakers ul { grid-template-columns: 1fr; }
   .invitation { padding-top: 90px; padding-bottom: 90px; }
   .invite-month { display: none; }
   .brief-card { padding: 28px 24px; }
